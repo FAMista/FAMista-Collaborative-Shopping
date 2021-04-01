@@ -1,1 +1,10 @@
-# FAMista-Collaborative-Shopping
+![1](https://user-images.githubusercontent.com/53896251/113253446-e2301c00-92e2-11eb-865c-e2f68ed62375.PNG)
+![2](https://user-images.githubusercontent.com/53896251/113253452-e3614900-92e2-11eb-8767-07e9a1b97d94.PNG)
+![3](https://user-images.githubusercontent.com/53896251/113253453-e3f9df80-92e2-11eb-894b-b79452826b98.PNG)
+![4](https://user-images.githubusercontent.com/53896251/113253455-e3f9df80-92e2-11eb-9851-6f8f10442495.PNG)
+![5](https://user-images.githubusercontent.com/53896251/113253458-e4927600-92e2-11eb-84c4-a27d0b8b3a30.PNG)
+![6](https://user-images.githubusercontent.com/53896251/113253460-e4927600-92e2-11eb-8fa0-347236fd725d.PNG)
+![7](https://user-images.githubusercontent.com/53896251/113253462-e52b0c80-92e2-11eb-8d2a-2c3af25a0896.PNG)
+![8](https://user-images.githubusercontent.com/53896251/113253464-e52b0c80-92e2-11eb-8ad2-c11d32aec484.PNG)
+![9](https://user-images.githubusercontent.com/53896251/113253465-e5c3a300-92e2-11eb-83de-583ab7d96638.PNG)
+![10](https://user-images.githubusercontent.com/53896251/113253467-e65c3980-92e2-11eb-8b0b-bce0945b76bf.PNG)
