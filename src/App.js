@@ -29,6 +29,22 @@ function App() {
           <Route path="/forgot-password">
           <ForgotPassword />
           </Route>
+          <Route path="/chat/rooms/:roomId">
+            <div className="app">
+                <div className="app__body">
+                  <Sidebar />
+                  <Chat/>
+                </div>
+            </div>
+          </Route>
+          <Route path="/chat">
+            <div className="app">
+              <div className="app__body">
+                <Sidebar/>
+                <ChatEmpty />
+              </div>
+            </div>
+          </Route>
         </Switch>
         </AuthProvider>
       </Router>
