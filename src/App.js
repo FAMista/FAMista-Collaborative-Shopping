@@ -45,12 +45,12 @@ function App() {
             <Checkout />
           </Route>
           <Route path="/chat/rooms/:roomId">
-          <div className="app">
-                <div className="app__body">
-            <Sidebar />
-            <Chat/>
-          </div>
-          </div>
+            <div className="app">
+              <div className="app__body">
+                <Sidebar />
+                <Chat/>
+              </div>
+            </div>
           </Route>
           <Route path="/chat">
             <div className="app">
