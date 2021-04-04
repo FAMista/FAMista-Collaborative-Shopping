@@ -4,6 +4,7 @@ import RegisterHeader from './components/authentication/RegisterHeader.js';
 import Register from './components/authentication/Register.js';
 import LoginHeader from './components/authentication/LoginHeader.js';
 import Login from './components/authentication/Login.js';
+import Dashboard from './components/authentication/Dashboard.js';
 import PrivateRoute from './PrivateRoute.js';
 import ForgotPassword from './components/authentication/ForgotPassword.js';
 import UpdateProfile from './components/authentication/UpdateProfile.js';
@@ -44,21 +45,12 @@ function App() {
             <Header />
             <Checkout />
           </Route>
-          <Route path="/chat/rooms/:roomId">
+          <Route path="/chat">
             <div className="app">
               <div className="app__body">
                 <Sidebar />
-                <Chat/>
+                <Chat />
               </div>
-            </div>
-          </Route>
-          <Route path="/chat">
-            <div className="app">
-                <div className="app__body">
-                  <Sidebar/>
-                  <Chat />
-                    
-                </div>
             </div>
           </Route>
           <PrivateRoute path="/social" component={MyFeed} />
