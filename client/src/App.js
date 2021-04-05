@@ -1,3 +1,4 @@
+import React from "react";
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import RegisterHeader from './components/authentication/RegisterHeader.js';
@@ -17,6 +18,8 @@ import MyFeed from './components/social/MyFeed';
 import Users from './components/friends/Users';
 import Requests from './components/friends/Requests';
 import Friends from './components/friends/Friends';
+import Room from './components/videocall/Room';
+import CreateRoom from './components/videocall/CreateRoom';
 
 function App() {
   return (
@@ -44,14 +47,25 @@ function App() {
             <Header />
             <Checkout />
           </Route>
+          <Route path="/chat/rooms/:roomId">
+          <div className="app">
+                <div className="app__body">
+            <Sidebar />
+            <Chat/>
+          </div>
+          </div>
+          </Route>
           <Route path="/chat">
             <div className="app">
-              <div className="app__body">
-                <Sidebar />
-                <Chat />
-              </div>
+                <div className="app__body">
+                  <Sidebar/>
+                  <Chat />
+                    
+                </div>
             </div>
           </Route>
+          <Route path="/call" exact component={CreateRoom} />
+          <Route path="/room/:roomID" component={Room} />
           <PrivateRoute path="/social" component={MyFeed} />
         </Switch>
         </AuthProvider>

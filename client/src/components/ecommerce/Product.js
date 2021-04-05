@@ -6,7 +6,7 @@ import db from '../../firebase'
 function Product({id, title, image, price, rating, userId, setLength}) {
     const {currentUser} = useAuth();
     var [twinCount, setTwinCount]  = useState(0);
-    // const [twins, setTwins] = useState([]);
+    const [twins, setTwins] = useState([]);
     const addToBasket = (event) => {
         event.preventDefault();
 
@@ -36,6 +36,7 @@ function Product({id, title, image, price, rating, userId, setLength}) {
                 db.collection("users").doc(doc.id).collection("basketItems").doc(id).get().then((docc) => { 
                     if (docc.exists) { 
                         console.log("Document data:", docc.data()); 
+                        setTwins(twins => [...twins, doc.data().friendName]);
                         twinCount = twinCount + 1;
                         console.log(twinCount);
                         setTwinCount(twinCount);
@@ -71,6 +72,10 @@ function Product({id, title, image, price, rating, userId, setLength}) {
                         .map((_, i) => (
                         <p className="star">🌟</p>
                     ))}
+                </div>
+                <div>{twins.map( e =>
+                    <div>{ e }</div>
+                  )}
                 </div>
             </div>
             <img
