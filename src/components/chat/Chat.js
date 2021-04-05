@@ -67,14 +67,6 @@ function Chat() {
                         </span>
                     </p>
                 ))}
-
-                {/* <p className={`chat__message ${true && "chat__receiver"}`}>
-                    <span className="chat__name">Fariyal</span>
-                    This is a message.
-                    <span className="chat__timestamp">
-                        {new Date().toUTCString()}
-                    </span>
-                </p> */}
             </div>
             <div className="chat__footer">
                 <InsertEmoticonIcon fontSize="large" />
