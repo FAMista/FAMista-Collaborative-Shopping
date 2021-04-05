@@ -19,8 +19,8 @@ import MyFeed from './components/social/MyFeed';
 import Users from './components/friends/Users';
 import Requests from './components/friends/Requests';
 import Friends from './components/friends/Friends';
-import Room from './components/videocall/Room';
-import CreateRoom from './components/videocall/CreateRoom';
+import Room from './components/Room';
+import CreateRoom from './components/CreateRoom';
 
 function App() {
   return (
@@ -48,22 +48,22 @@ function App() {
             <Header />
             <Checkout />
           </Route>
-          <Route path="/chat/rooms/:roomId">
+          <PrivateRoute path="/chat/rooms/:roomId">
+            <div className="app">
+                <div className="app__body">
+                  <Sidebar />
+                  <Chat/>
+                </div>
+            </div>
+          </PrivateRoute>
+          <PrivateRoute path="/chat">
             <div className="app">
               <div className="app__body">
-                <Sidebar />
-                <Chat />
+                <Sidebar/>
+                <ChatEmpty />
               </div>
             </div>
-          </Route>
-          <Route path="/chat">
-          <div className="app">
-              <div className="app__body">
-                <Sidebar />
-                <ChatEmpty />            
-              </div>
-            </div>
-          </Route>
+          </PrivateRoute>
           <Route path="/call" exact component={CreateRoom} />
           <Route path="/room/:roomID" component={Room} />
           <PrivateRoute path="/social" component={MyFeed} />
