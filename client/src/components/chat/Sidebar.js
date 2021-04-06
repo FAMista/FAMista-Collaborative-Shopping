@@ -7,12 +7,14 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {SearchOutlined} from "@material-ui/icons";
 import SidebarChat from "./SidebarChat";
 import db from '../../firebase';
+import {useAuth} from '../../contexts/AuthContext';
 
 function Sidebar() {
     const [rooms, setRooms] = useState([]);
+    const {currentUser} = useAuth();
 
     useEffect(() => {
-        const unsubscribe = db.collection('rooms').onSnapshot(snapshot => (
+        const unsubscribe = db.collection('users').doc(currentUser.uid).collection('friends').onSnapshot(snapshot => (
             setRooms(snapshot.docs.map(doc => (
                 {
                     id: doc.id,
@@ -26,6 +28,7 @@ function Sidebar() {
         return () => {
             unsubscribe();
         }
+    // eslint-disable-next-line
     },[]); 
 
     return (
@@ -53,7 +56,7 @@ function Sidebar() {
             <div className="sidebar__chats">
                 <SidebarChat addNewChat/>
                     {rooms.map(room=> (
-                        <SidebarChat key={room.id} id={room.id} name={room.data.name}/>
+                        <SidebarChat key={room.id} id={room.id} name={room.data.friendName}/>
                 ))}
             </div>
         </div>

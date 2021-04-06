@@ -5,7 +5,7 @@ import db from '../../firebase'
 
 function Product({id, title, image, price, rating, userId, setLength}) {
     const {currentUser} = useAuth();
-    var [twinCount, setTwinCount]  = useState(0);
+    const [twinCount, setTwinCount]  = useState(0);
     const [twins, setTwins] = useState([]);
     const addToBasket = (event) => {
         event.preventDefault();
@@ -28,29 +28,32 @@ function Product({id, title, image, price, rating, userId, setLength}) {
         })
     }
 
+
     const seeTwinCount = (event) => {
         event.preventDefault();
+        var count = 0;
         db.collection("users").doc(currentUser.uid).collection("friends").get().then(querySnapshot => {
             querySnapshot.forEach(doc => {
                 console.log(doc.id);
                 db.collection("users").doc(doc.id).collection("basketItems").doc(id).get().then((docc) => { 
                     if (docc.exists) { 
-                        console.log("Document data:", docc.data()); 
                         setTwins(twins => [...twins, doc.data().friendName]);
-                        twinCount = twinCount + 1;
-                        console.log(twinCount);
-                        setTwinCount(twinCount);
+                        console.log("Document data:", docc.data()); 
+                        count = count + 1;
                     } 
                     else { 
                         // doc.data() will be undefined in this case 
                         console.log("No such document!"); 
                     }
+                    setTwinCount(count);
                 }).catch((error) => { 
                     console.log("Error getting document:", error); 
                 });
                     
             })
         })
+        setTwinCount(0);
+        setTwins([]);
     }
 
 
@@ -70,13 +73,13 @@ function Product({id, title, image, price, rating, userId, setLength}) {
                     {Array(rating)
                         .fill()
                         .map((_, i) => (
-                        <p className="star">🌟</p>
+                        <p className="star">⭐</p>
                     ))}
                 </div>
                 <div>{twins.map( e =>
                     <div>{ e }</div>
                   )}
-                </div>
+                  </div>
             </div>
             <img
             alt="Lean Startup"
