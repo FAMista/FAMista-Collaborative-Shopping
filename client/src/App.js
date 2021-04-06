@@ -10,6 +10,7 @@ import ForgotPassword from './components/authentication/ForgotPassword.js';
 import UpdateProfile from './components/authentication/UpdateProfile.js';
 import Sidebar from './components/chat/Sidebar';
 import Chat from './components/chat/Chat';
+import ChatEmpty from './components/chat/ChatEmpty';
 import { AuthProvider } from './contexts/AuthContext.js';
 import Home from './components/ecommerce/Home.js';
 import Checkout from './components/ecommerce/Checkout.js';
@@ -18,8 +19,8 @@ import MyFeed from './components/social/MyFeed';
 import Users from './components/friends/Users';
 import Requests from './components/friends/Requests';
 import Friends from './components/friends/Friends';
-import Room from './components/videocall/Room';
-import CreateRoom from './components/videocall/CreateRoom';
+import Room from './components/Room';
+import CreateRoom from './components/CreateRoom';
 
 function App() {
   return (
@@ -47,23 +48,22 @@ function App() {
             <Header />
             <Checkout />
           </Route>
-          <Route path="/chat/rooms/:roomId">
-          <div className="app">
-                <div className="app__body">
-            <Sidebar />
-            <Chat/>
-          </div>
-          </div>
-          </Route>
-          <Route path="/chat">
+          <PrivateRoute path="/chat/rooms/:roomId">
             <div className="app">
                 <div className="app__body">
-                  <Sidebar/>
-                  <Chat />
-                    
+                  <Sidebar />
+                  <Chat/>
                 </div>
             </div>
-          </Route>
+          </PrivateRoute>
+          <PrivateRoute path="/chat">
+            <div className="app">
+              <div className="app__body">
+                <Sidebar/>
+                <ChatEmpty />
+              </div>
+            </div>
+          </PrivateRoute>
           <Route path="/call" exact component={CreateRoom} />
           <Route path="/room/:roomID" component={Room} />
           <PrivateRoute path="/social" component={MyFeed} />

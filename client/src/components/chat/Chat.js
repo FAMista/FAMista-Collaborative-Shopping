@@ -57,6 +57,27 @@ function Chat() {
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
 
+        db.collection('users').doc(currentUser.uid).collection('friendRooms').doc(roomId).collection('messages').add({
+            message: input,
+            name: currentUser.displayName,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        })
+
+        if (currentUser.uid === roomId.slice(28)) {
+            db.collection('users').doc(roomId.slice(0, 28)).collection('friendRooms').doc(roomId).collection('messages').add({
+                message: input,
+                name: currentUser.displayName,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+        }
+        else {
+            db.collection('users').doc(roomId.slice(28)).collection('friendRooms').doc(roomId).collection('messages').add({
+                message: input,
+                name: currentUser.displayName,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            })
+        }
+
         setInput("");
     }
 
