@@ -35,13 +35,6 @@ function Checkout() {
         );
     // eslint-disable-next-line
     }, [])
-    const showModal = () => {
-      setShow(true);
-  };
-
-  const hideModal = () => {
-      setShow(false);
-  };
 
     const showModal = () => {
         setShow(true);

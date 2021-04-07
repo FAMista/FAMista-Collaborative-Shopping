@@ -4,7 +4,7 @@ import db from '../../firebase';
 import firebase from "firebase";
 import {useAuth} from "../../contexts/AuthContext";
 
-function ShareProduct({key, id, emailAdd, name, itemImage}) { {
+function ShareProduct({key, id, emailAdd, name, itemImage}) { 
     const {currentUser} = useAuth();
 
     const share = () => {
@@ -38,8 +38,5 @@ function ShareProduct({key, id, emailAdd, name, itemImage}) { {
     )
 }
 
-<<<<<<< HEAD:client/src/components/ecommerce/Share.js
-export default ShareProduct 
-=======
-export default ShareProduct
->>>>>>> cc49f7bf79de71a9a547d1e757bada28be43fc18:client/src/components/ecommerce/ShareProduct.js
+
+export default ShareProduct;

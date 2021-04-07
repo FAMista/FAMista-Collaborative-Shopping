@@ -17,12 +17,8 @@ function Chat() {
     const [roomName, setRoomName] = useState("");
     const [messages, setMessages] = useState([]);
     const {currentUser} = useAuth();
-<<<<<<< HEAD
     // eslint-disable-next-line
     var [id, setId] = useState('');
-=======
-    const [id, setId] = useState('');
->>>>>>> cc49f7bf79de71a9a547d1e757bada28be43fc18
 
     useEffect(() => {
         if (roomId) {
@@ -69,7 +65,8 @@ function Chat() {
         a.appendChild(link);
         a.title = "Enter room";
         a.href = `/room/${id}`;
-        var customInput = `${currentUser.displayName} is inviting you to shop virtually! Please follow ${a}`;
+        var customInput = `${currentUser.displayName} is inviting you to shop virtually! Please click on this message to join! ${a}`;
+        console.log(customInput.slice(0, customInput.length-36))
         var clickEvent = new Event( 'click' );
         sendMessage(clickEvent, customInput);
     }
@@ -79,8 +76,8 @@ function Chat() {
             <div className="chat__header">
                 <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`}/>
                 <div className="chat__headerInfo">
-                    <h3>{roomName}</h3>
-                    <p>Last Seen{" "}
+                    <h3 style={{color: 'white'}}>{roomName}</h3>
+                    <p style={{color: 'white'}}>Last Seen{" "}
                     {new Date(messages[messages.length - 1]?.timestamp?.toDate()).toUTCString()}</p>
                 </div>
                 <div className="chat__headerRight">
@@ -90,10 +87,10 @@ function Chat() {
                         </Link>
                     </IconButton>
                     <IconButton>
-                        <AttachFile />
+                        <AttachFile  />
                     </IconButton>
                     <IconButton>
-                        <MoreVert />
+                        <MoreVert  />
                     </IconButton>
                 </div>
             </div>
@@ -116,30 +113,19 @@ function Chat() {
                             </Link> 
                             : <span>{message.message}</span>
                         }
-                        <img src={message.imageUrl} alt="" /> <br></br>
-                        {message.message}
                         <span className="chat__timestamp">
                             {new Date(message.timestamp?.toDate()).toUTCString()}
                         </span>
                     </p>
                 ))}
-
-                {/* <p className="chat__message">
-                        <span className="chat__name">{message.name}</span>
-                        <img src={message.image} alt="" />
-                        {message.message}
-                        <span className="chat__timestamp">
-                            {new Date(message.timestamp?.toDate()).toUTCString()}
-                        </span>
-                    </p> */}
             </div>
             <div className="chat__footer">
-                <InsertEmoticonIcon fontSize="large" />
+                <InsertEmoticonIcon fontSize="large" style={{color: '#eff2f5'}}/>
                 <form>
                     <input value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder="Type a message"/>
                     <button type="submit" onClick={sendMessage}> Send a Message</button>
                 </form>
-                <MicIcon fontSize="large"/>
+                <MicIcon fontSize="large" style={{color: '#eff2f5'}}/>
             </div>
         </div>
     )
