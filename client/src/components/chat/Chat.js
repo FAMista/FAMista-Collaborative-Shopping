@@ -17,6 +17,7 @@ function Chat() {
     const [roomName, setRoomName] = useState("");
     const [messages, setMessages] = useState([]);
     const {currentUser} = useAuth();
+    // eslint-disable-next-line
     var [id, setId] = useState('');
 
     useEffect(() => {
@@ -58,8 +59,7 @@ function Chat() {
     }
 
     function create() {
-        const id = uuid(); 
-        setId(id); 
+        const id = uuid();
         var a = document.createElement('a');
         var link = document.createTextNode("this link");
         a.appendChild(link);
@@ -76,8 +76,8 @@ function Chat() {
             <div className="chat__header">
                 <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`}/>
                 <div className="chat__headerInfo">
-                    <h3 style={{color: 'white'}}>{roomName}</h3>
-                    <p style={{color: 'white'}}>Last Seen{" "}
+                    <h3>{roomName}</h3>
+                    <p>Last Seen{" "}
                     {new Date(messages[messages.length - 1]?.timestamp?.toDate()).toUTCString()}</p>
                 </div>
                 <div className="chat__headerRight">
@@ -90,7 +90,7 @@ function Chat() {
                         <AttachFile />
                     </IconButton>
                     <IconButton>
-                        <MoreVert  />
+                        <MoreVert />
                     </IconButton>
                 </div>
             </div>
@@ -103,9 +103,9 @@ function Chat() {
                             <img height="250" src={message.imageUrl} alt="" /><br />
                         </Link>
                         }
-                        {id === '' && message.message.slice(0, message.message.length-36) === `${message.name} is inviting you to shop virtually! Please click on this message to join! http://localhost:3000/room/`? 
+                        {message.message.slice(0, message.message.length-36) === `${message.name} is inviting you to shop virtually! Please click on this message to join! http://localhost:3000/room/`? 
                             <span className="d-none">{id = message.message.slice(message.message.length-36)}</span> : 
-                            id = ''
+                            <span></span>
                         }
                         {id !== '' ? 
                             <Link to={`/room/${id}`} target="_blank">
@@ -120,12 +120,12 @@ function Chat() {
                 ))}
             </div>
             <div className="chat__footer">
-                <InsertEmoticonIcon fontSize="large" style={{color: '#eff2f5'}}/>
+                <InsertEmoticonIcon fontSize="large" />
                 <form>
                     <input value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder="Type a message"/>
                     <button type="submit" onClick={sendMessage}> Send a Message</button>
                 </form>
-                <MicIcon fontSize="large" style={{color: '#eff2f5'}}/>
+                <MicIcon fontSize="large"/>
             </div>
         </div>
     )
