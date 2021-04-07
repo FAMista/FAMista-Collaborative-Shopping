@@ -19,8 +19,8 @@ import MyFeed from './components/social/MyFeed';
 import Users from './components/friends/Users';
 import Requests from './components/friends/Requests';
 import Friends from './components/friends/Friends';
-import Room from './components/Room';
-import CreateRoom from './components/CreateRoom';
+import Room from './components/videocall/Room';
+import CreateRoom from './components/videocall/CreateRoom';
 import HeaderSocial from './components/social/Header.js';
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
             <Checkout />
           </Route>
           <PrivateRoute path="/chat/rooms/:roomId">
-            <HeaderSocial /> 
+          <HeaderSocial /> 
             <div className="app">
                 <div className="app__body">
                   <Sidebar />
@@ -59,7 +59,7 @@ function App() {
             </div>
           </PrivateRoute>
           <PrivateRoute path="/chat">
-            <HeaderSocial /> 
+            <HeaderSocial />
             <div className="app">
               <div className="app__body">
                 <Sidebar/>
