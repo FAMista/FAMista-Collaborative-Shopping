@@ -16,4 +16,4 @@ const ShareProductModal = ({ handleClose, show, image }) => {
   );
 };
 
-export default ShareProductModal;
+export default ShareProductModal; 

@@ -70,7 +70,7 @@ function Checkout() {
         </div>
       </div>
       <div className="checkout__right">
-			<Subtotal 
+      <Subtotal 
 				length = {length}
 				total = {total}
 			/>
