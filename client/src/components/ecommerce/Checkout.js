@@ -43,6 +43,14 @@ function Checkout() {
       setShow(false);
   };
 
+    const showModal = () => {
+        setShow(true);
+    };
+  
+  	const hideModal = () => {
+      	setShow(false);
+  	};
+
     return (
     <div className="checkout">
       <div className="checkout__left">

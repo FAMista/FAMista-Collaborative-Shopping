@@ -38,4 +38,8 @@ function ShareProduct({key, id, emailAdd, name, itemImage}) { {
     )
 }
 
+<<<<<<< HEAD:client/src/components/ecommerce/Share.js
 export default ShareProduct 
+=======
+export default ShareProduct
+>>>>>>> cc49f7bf79de71a9a547d1e757bada28be43fc18:client/src/components/ecommerce/ShareProduct.js
